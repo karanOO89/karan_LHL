@@ -24,6 +24,7 @@ const eqArrays = (arr1, arr2) => {
     return false;
   }
 };
+
 const assertArraysEq = (ar1, ar2) => {
   if (eqArrays(ar1, ar2) === true) {
     return console.log(`✅✅✅ ${ar1} === ${ar2}`);
