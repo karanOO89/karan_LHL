@@ -25,6 +25,8 @@ const eqArrays = (arr1, arr2) => {
   }
 };
 
-console.log(eqArrays([1, 2, 3], [1, 2, 3])); // => should PASS
-console.log(eqArrays(["1", "2", "3"], ["1", "2", 3]));
+console.log(eqArrays([1,  3], [1, 2, 3])); // => should PASS
+console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"]));
 assertEqual(eqArrays([1, 2, 3], [1, 2, "3"]), true);
+
+
