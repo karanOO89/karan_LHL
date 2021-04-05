@@ -6,6 +6,8 @@ const tail = function(arr) {
   }
   return (m);
 };
-const result = tail(["Hello", "Lighthouse", "Labs"]);
-assertEqual(result[0],"Lighthouse"); // => will always fail!
-assertEqual(result[1],"Labs");
+module.exports = tail;
+// console.log(tail(["Hello", "Lighthouse", "Labs"]));
+// const result = tail(["Hello", "Lighthouse", "Labs"]);
+// assertEqual(result[0],"Lighthouse"); // => will always fail!
+// assertEqual(result[1],"Labs");

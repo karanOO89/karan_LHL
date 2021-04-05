@@ -5,5 +5,4 @@ const head = function(arr) {
   }
   return arr[0];
 };
-assert(head([5, 6, 7]), 5);
-assert(head(["Hello", "Lighthouse", "Labs"]), "Hello");
+module.exports = head
