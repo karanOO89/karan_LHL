@@ -5,24 +5,27 @@ const assertEqual = function (actual, expected) {
     console.assert(actual === expected, `🛑🛑🛑 ${actual} !== ${expected}`);
   }
 };
-const eqArrays = (arr1, arr2) => {
+const eqArrays = function (arr1, arr2) {
   let verifyArr = [];
-  if (arr1.length === arr2.length) {
-    for (let i = 0; i <= arr1.length - 1; i++) {
-      if (arr1[i] !== arr2[i]) {
-        verifyArr.push(false);
-      } else {
-        verifyArr.push(true);
-      }
-    }
-    if (verifyArr.includes(false)) {
-      return false;
-    } else {
-      return true;
-    }
-  } else {
-    return false;
+  let x = false;
+  if (arr1.length !== arr2.length) {
+    return x;
   }
+
+  for (let i in arr1) {
+    console.log(arr1[i]);
+    console.log(arr2[i]);
+    if (Array.isArray(arr1[i]) || Array.isArray(arr2[i])) {
+      console.log("csdc");
+      eqArrays(arr1[i], arr2[i]);
+    } 
+      if (arr1[i] !== arr2[i]) {
+        return x;
+      }
+    
+  }
+  x = true;
+  return x;
 };
 const isObject = function (prop) {
   if (prop == null) {
@@ -41,12 +44,14 @@ const eqObjects = function (object1, object2) {
   }
 
   for (let prop in object1) {
-    if (isObject(object1[prop]) && isObject(object2[prop])) {
+    if (isObject(object1[prop]) || isObject(object2[prop])) {
       eqObjects(object1[prop], object2[prop]);
     }
-    if (Array.isArray(object1[prop]) && Array.isArray(object2[prop])) {
-      if (!eqArrays(object1[prop], object2[prop])) return x;
-    }
+    // if (Array.isArray(object1[prop]) && Array.isArray(object2[prop])) {
+      
+    //   if (!eqArrays(object1[prop], object2[prop])) 
+    //   return x;
+    // }
 
     if (object1[prop] !== object2[prop]) {
       return x;
@@ -73,4 +78,16 @@ assertEqual(
   eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }),
   false
 ); // => false
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), true);
+// assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), true);
+// console.log(eqObjects([[2, 3], [4]], [[2, 3], [4]])) // => true
+
+// console.log(
+//   eqObjects(
+//     [[2, 3], [4]],
+//     [
+//       [2, 3],
+//       [4, 5],
+//     ]
+//   )
+// ); // => false
+// eqArrays([[2, 3], [4]], [[2, 3], 4]) // => false
