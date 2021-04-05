@@ -13,47 +13,38 @@ const assertEqual = function (actual, expected) {
 //   return typeof ele === "array";
 // };
 const eqArrays = (arr1, arr2) => {
-  let verifyArr = [];
-
-  if (arr1.length !== arr2.length) return false;
-
+  // let verifyArr = [];
+  x = false;
+  if (arr1.length !== arr2.length) return x;
+  
   for (let i = 0; i <= arr1.length - 1; i++) {
-    if (!Array.isArray(arr1[i])|| !Array.isArray(arr2[i])) {
-      console.log(arr1[i] ,arr2[i])
+    if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) {
+            // console.log(arr1[i] ,arr2[i])
       if (arr1[i] !== arr2[i]) {
-        verifyArr.push(false);
-        console.log(verifyArr)
-      } else {
-        verifyArr.push(true);
-        // console.log(verifyArr)
-      }
+        console.log(arr1[i],arr2[i])
+        return x
+        
+      } 
+      // else {
+      //   verifyArr.push(true);
+      //   // console.log(verifyArr)
+      // }
     } 
     else {
       eqArrays(arr1[i],arr2[i]);
     }
-
   }
-  if (verifyArr.includes(false)) {
-    return false;
-  }else{
-
-  return true;
-  }
+  x = true;
+  return x
 };
 
+
+console.log(
+  eqArrays( [[2, 3], [4]],[[2, 3],[5]]  )
+); // => false
+// eqArrays([[2, 3], [4]], [[2, 3], 4]); // => false
 // console.log(eqArrays([1,  3], [1,  3])); // => should PASS
 // console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"]));
 // assertEqual(eqArrays([1, 2, 3], [1, 2, "3"]), true);
 
 // console.log(eqArrays([[2, 3], [4]], [[2, 3], [4]])); // => true
-
-console.log(
-  eqArrays(
-    [[2, 3], [4]],
-    [
-      [2, 3],
-      [4, 5],
-    ]
-  )
-); // => false
-// eqArrays([[2, 3], [4]], [[2, 3], 4]); // => false
