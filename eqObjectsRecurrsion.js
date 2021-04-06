@@ -34,7 +34,7 @@ const isObject = function (prop) {
 
   return typeof prop === "object";
 };
-const eqObjects = function (object1, object2) {
+const eqObjectsRecurrsion = function (object1, object2) {
   let k1 = Object.keys(object1);
   let k2 = Object.keys(object2);
   x = false;
@@ -46,6 +46,11 @@ const eqObjects = function (object1, object2) {
   for (let prop in object1) {
     if (isObject(object1[prop]) || isObject(object2[prop])) {
       eqObjects(object1[prop], object2[prop]);
+      if (eqObjects(object1[prop], object2[prop])) {
+        eqObjects(object1[prop], object2[prop]);
+      } else {
+        return false;
+      }
     }
     // if (Array.isArray(object1[prop]) && Array.isArray(object2[prop])) {
       
@@ -60,24 +65,25 @@ const eqObjects = function (object1, object2) {
   x = true;
   return x;
 };
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true); // => true
+module.exports = eqObjectsRecurrsion
+// const ab = { a: "1", b: "2" };
+// const ba = { b: "2", a: "1" };
+// assertEqual(eqObjects(ab, ba), true); // => true
 
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false); // => false
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false); // => false
+// const abc = { a: "1", b: "2", c: "3" };
+// assertEqual(eqObjects(ab, abc), false); // => false
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// assertEqual(eqObjects(cd, dc), true); // => true
+// const cd2 = { c: "1", d: ["2", 3, 4] };
+// assertEqual(eqObjects(cd, cd2), false); // => false
 
-assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true); // => true
+// assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true); // => true
 
-assertEqual(
-  eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }),
-  false
-); // => false
+// assertEqual(
+//   eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }),
+//   false
+// ); // => false
 // assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), true);
 // console.log(eqObjects([[2, 3], [4]], [[2, 3], [4]])) // => true
 

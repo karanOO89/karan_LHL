@@ -32,13 +32,14 @@ const map = function(array, callback) {
     }
     return results;
   }
-const words = ["ground", "control", "to", "major", "tom"];
-const words2 = ["land", "sea", "air", "space", "star"];
-const words3 = ["hello", "namaste", "hola", "ciao"];
+  module.exports=map;
+// const words = ["ground", "control", "to", "major", "tom"];
+// const words2 = ["land", "sea", "air", "space", "star"];
+// const words3 = ["hello", "namaste", "hola", "ciao"];
 
-const results1 = map(words, word => word[0]);
-const results2 = map(words2, word => word[0]);
-const results3 = map(words3, word => word[0]);
-assertArraysEq(results2,[ 'l', 's', 'a', 's', 's' ]);
-assertArraysEq(results1,[ 'g', 'c', 't', 'm', 't' ]);
-assertArraysEq(results3,[ 'h', 'n', 'k', 'c' ]);
+// const results1 = map(words, word => word[0]);
+// const results2 = map(words2, word => word[0]);
+// const results3 = map(words3, word => word[0]);
+// assertArraysEq(results2,[ 'l', 's', 'a', 's', 's' ]);
+// assertArraysEq(results1,[ 'g', 'c', 't', 'm', 't' ]);
+// assertArraysEq(results3,[ 'h', 'n', 'k', 'c' ]);

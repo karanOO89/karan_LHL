@@ -16,5 +16,5 @@ const letterPositions = (str) => {
   }
   return result;
 };
-
-assert(letterPositions("lighthouse in the house").i, [1, 10]);
+module.exports = letterPositions
+// assert(letterPositions("lighthouse in the house").i, [1, 10]);

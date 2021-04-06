@@ -1,13 +1,29 @@
-const head   = require('./head');
-const tail   = require('./tail');
-const middle = require('./middle');
+const head = require("./head");
+const tail = require("./tail");
+const middle = require("./middle");
+const assertArraysEqual = require("./assertArraysEqual");
+const assertEqual = require("./assertEqual");
+const assertObjectsEqual = require("./assertObjectsEqual");
+const countLetters = require("./countLetters");
+const countOnly = require("./countOnly");
+const eqArrays = require("./eqArrays");
+const eqObjects = require("./eqObjects");
+const findKey = require("./findKey");
+const findKeyByValue = require("./findKeyByValue");
+const flatten = require("./flatten");
+const letterPositions = require("./letterPositions");
+const map = require("./map");
+const takeUntil = require("./takeUntil");
+const without = require("./without");
+const eqArraysRecurrsion = require("./eqArraysRecurrsion");
+const eqObjectsRecurrsion = require("./eqObjectsRecurrsion");
 
 module.exports = {
-  head:   head,
-  tail:   tail,
+  head: head,
+  tail: tail,
   middle: middle,
   assertArraysEqual: assertArraysEqual,
-  assertEqual : assertEqual,
+  assertEqual: assertEqual,
   assertObjectsEqual: assertObjectsEqual,
   countLetters: countLetters,
   countOnly: countOnly,
@@ -16,9 +32,10 @@ module.exports = {
   findKey: findKey,
   findKeyByValue: findKeyByValue,
   flatten: flatten,
-  
-
-
-
-
-};  
+  letterPositions: letterPositions,
+  map: map,
+  takeUntil: takeUntil,
+  without: without,
+  eqArraysRecurrsion: eqArraysRecurrsion,
+  eqObjectsRecurrsion : eqObjectsRecurrsion
+};
