@@ -5,14 +5,17 @@ const eqArrays = (arr1, arr2) => {
     if (!Array.isArray(arr1[i]) || !Array.isArray(arr2[i])) {
      
       if (arr1[i] !== arr2[i]) {
-        console.log(false);
+        // console.log(arr1[i], arr2[i]);
+        // console.log(false);
+        
         return false;
+        
       }
-    } else {
+    } 
       // console.log(arr1[i], arr2[i]);
       eqArrays(arr1[i], arr2[i])};
     
-  }
+  
   
   return true;
 };

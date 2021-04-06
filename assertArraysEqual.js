@@ -7,7 +7,7 @@
 // };
 const eqArrays = require('./eqArrays')
 
-const assertArraysEq = (actual, expected) => {
+const assertArraysEqual = (actual, expected) => {
   if (eqArrays(actual, expected) === true) {
     console.log(
       "✅✅✅ " + JSON.stringify(actual) + " === " + JSON.stringify(expected)
@@ -20,5 +20,5 @@ const assertArraysEq = (actual, expected) => {
   return undefined;
 };
 
-module.exports = assertArraysEq
+module.exports = assertArraysEqual
 // assertArraysEq([1, 2, 3], [1, 2, 3]);

@@ -18,7 +18,7 @@
 //   }
 // };
 
-const assertArraysEq = require('./assertArraysEq')
+const assertArraysEq = require('./assertArraysEqual')
 const middle = (input) => {
   let midIndex = input.length / 2;
   const midArr = [];

@@ -39,8 +39,8 @@ const flatten = (arr) => {
     }
   }
 
-  console.log(extractArr);
+  return(extractArr);
   // for (ele of arr )
 };
-
-flatten([1, 2, [3, 4], 5, [6], ["a"]]);
+module.exports = flatten;
+// flatten([1, 2, [3, 4], 5, [6], ["a"]]);
