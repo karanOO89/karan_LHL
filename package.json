@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@karan_gaba/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "Its a lodash clone and is submiited as a project while learning in Lighthouse Labs.Its purely meant for educational purposes",
   "main": "assertArraysEq.js",
   "directories": {
     "test": "test"
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/karanOO89/karan_LHL.git"
   },
   "keywords": [
-    "test"
+    "lotide"
   ],
   "author": "karan",
   "license": "ISC",
